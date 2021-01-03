@@ -27,6 +27,7 @@ app.use('/users', usersRouter);
 app.use(function(req, res, next) {
   //next(createError(404));
   res.status(404);
+  res.removeHeader('X-Powered-By');
   res.render('404', {title: '404.'});
 });
 
