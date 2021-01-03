@@ -6,6 +6,7 @@ var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var c404Router = require('./routes/c404');
 
 var app = express();
 
@@ -24,7 +25,9 @@ app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  next(createError(404));
+  //next(createError(404));
+  res.status(404);
+  res.render('404', {title: '404.'});
 });
 
 // error handler
@@ -37,7 +40,5 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-app.use(function (req, res, next){
-	res.status(404).send("Sorry can't find that!");
-});
+
 module.exports = app;
