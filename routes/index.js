@@ -11,9 +11,9 @@ var connection = mysql.createConnection({
 	database: 'express_db'
 })
 
-connection.connect(()=>{
-  console.log('Connected');
-});
+//connection.connect(()=>{
+//  console.log('Connected');
+//});
 
 router.get('/', function(req, res, next) {
   res.removeHeader('X-Powered-By');
