@@ -11,13 +11,9 @@ var connection = mysql.createConnection({
 	database: 'express_db'
 })
 
-//connection.connect(()=>{
-//  console.log('Connected');
-//});
-
 router.get('/', function(req, res, next) {
   res.removeHeader('X-Powered-By');
-  res.removeHeader('server');
+  //res.removeHeader('server');
   const sql = 'select * from ps_account';
   const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
 
