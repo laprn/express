@@ -4,3 +4,19 @@ block content
   h1= title
   p Welcome to #{title}
   p Your IP Address: #{ip} 
+
+  table
+    tr
+      th icon
+      th psid
+      th level 
+
+    each row in sql_response 
+      tr
+        td
+          img(src='#{row.icon_url}' height='100px')
+        td
+          a(class='psn_link' href='#{row.psid_url}' target='_blanck') #{row.psid} 
+        td
+          span &#x26a0;&#xfe0f; &times #{row.rating}
+

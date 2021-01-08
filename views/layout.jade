@@ -1,8 +1,32 @@
 doctype html
-html
+html(lang='us')
   head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    meta(charset='utf-8')
     meta(name='viewport', content='width=device-width,initial-scale=1')
+    title= title
+    style(type='text/css').
+      body {
+        color: #f0f0f0;
+        background: #121212;
+        font-family: Arial;
+        width: 100%
+        text-align: center;
+      }
+      .wrapper {
+        width: 75%;
+        margin: auto;
+        background: #4F4F4F;
+        border-radius: 10px;
+        padding: 1rem 1.5rem;
+      }
+      a {
+        text-decoration: none;
+        color: #00B7FF;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+
   body
-    block content
+   .wrapper
+     block content
