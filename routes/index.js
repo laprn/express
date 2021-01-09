@@ -13,7 +13,6 @@ var connection = mysql.createConnection({
 
 router.get('/', function(req, res, next) {
   res.removeHeader('X-Powered-By');
-  //res.removeHeader('server');
   const sql = 'select * from ps_account';
   const ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
 
