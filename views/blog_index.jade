@@ -1,0 +1,14 @@
+require('dateformat')
+extends layout
+
+block content
+  h1= title
+
+  table
+    each row in posts 
+      tr
+        td
+          a(href='#{row.path}') #{row.title}
+        td
+          p #{row.date}
+
