@@ -10,7 +10,7 @@ var connection = mysql.createConnection({
 	user: 'ubuntu',
 	password: '3gFRpfmysql',
 	database: 'express_db',
-	dateStrings: 'date'
+	dateStrings: true 
 })
 
 router.get('/', function(req, res, next) {

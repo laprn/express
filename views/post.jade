@@ -2,11 +2,14 @@ extends layout
 
 block content
   h1= title
-  form(action='/add_post' method='POST')
+  form(action='post/add' method='POST')
     p
       | title:
-      input(type='text', name='title')
+      input(type='text', name='title' required)
+    p
       | path:
-      input(type='text', name='path')
-      | content:
-      textarea(name='content' row='10' cols='50')
+      input(type='text', name='path' required)
+    p content:
+    textarea(name='content' row='30' cols='50' required)
+    br
+    input(type='submit' value='post')

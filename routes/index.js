@@ -19,7 +19,7 @@ router.get('/', function(req, res, next) {
 
   connection.query(sql, function(err, result, fields){
     if (err) throw err;
-    res.render('index', { title: '砂場', ip: ip, sql_response: result });
+    res.render('index', { title: 'Sand Box', ip: ip, sql_response: result });
   });
 });
 

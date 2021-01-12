@@ -22,4 +22,16 @@ router.get('/', function(req, res, next) {
   });
 });
 
+router.post('/add', (req, res, next) => {
+  res.removeHeader('X-Powerd-By');
+  var title = req.body['title'];
+  var path = req.body['path'];
+  var content = req.body['content'];
+  var data = {'title': title, 'path': path, 'content': content};
+
+  const sql = 'INSERT INTO blog set ?';
+  connection.query(sql, data, function(err, result, fields){
+    res.redirect('/blog');
+  });
+});
 module.exports = router;
