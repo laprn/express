@@ -15,12 +15,13 @@ var connection = mysql.createConnection({
 	dateStrings: true 
 })
 
+var header = 'Blog Index'
 router.get('/', function(req, res, next) {
   res.removeHeader('X-Powered-By');
   const sql = 'select * from blog';
 
   connection.query(sql, function(err, result, fields){
-    res.render('blog_index', { title: 'Blog Index', posts: result });
+    res.render('blog_index', { title: header, posts: result });
   });
 });
 
@@ -34,7 +35,7 @@ router.get('/:path', (req, res) => {
       res.render('404', {title: '404.'});
 
     }
-    res.render('blog', { title: result[0].title, date: result[0].date, content: markdown.render(result[0].content)})
+    res.render('blog', { header: header, title: result[0].title, date: result[0].date, content: markdown.render(result[0].content)})
   });
 });
 
@@ -48,7 +49,7 @@ router.get('/:path/edit', (req, res) => {
       res.render('404', {title: '404.'});
 
     }
-    res.render('edit', { title: result[0].title, path: path, content: result[0].content})
+    res.render('edit', { header: header, title: result[0].title, path: path, content: result[0].content})
   });
 });
 

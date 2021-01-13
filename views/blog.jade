@@ -1,6 +1,8 @@
 extends layout
 
 block content
-  h1= title
-  h3= date
+  h1
+    a(href='/blog') #{header}
+  h2= title
+  h5= date
   | !{content}
