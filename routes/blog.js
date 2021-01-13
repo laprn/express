@@ -2,6 +2,8 @@ var express = require('express');
 var dateformat = require('dateformat');
 var router = express.Router();
 
+var MarkdownIt = require('markdown-it');
+var markdown = new MarkdownIt();
 /* GET home page. */
 
 var mysql = require('mysql')
@@ -32,7 +34,7 @@ router.get('/:path', (req, res) => {
       res.render('404', {title: '404.'});
 
     }
-    res.render('blog', { title: result[0].title, date: result[0].date, content: result[0].content})
+    res.render('blog', { title: result[0].title, date: result[0].date, content: markdown.render(result[0].content)})
   });
 });
 module.exports = router;

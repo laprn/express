@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var MarkdownIt = require('markdown-it');
 
 var indexRouter = require('./routes/index');
 var blogRouter = require('./routes/blog');
@@ -10,6 +11,7 @@ var postRouter = require('./routes/post');
 
 var app = express();
 
+var md = new MarkdownIt();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
