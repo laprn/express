@@ -37,4 +37,19 @@ router.get('/:path', (req, res) => {
     res.render('blog', { title: result[0].title, date: result[0].date, content: markdown.render(result[0].content)})
   });
 });
+
+router.get('/:path/edit', (req, res) => {
+  res.removeHeader('X-Powered-By');
+  var path = req.params.path
+  const sql = 'select * from blog where path = ?';
+  connection.query(sql, path, function(err, result, fields){
+    if (result[0]==null){
+      res.removeHeader('X-Powered-By');
+      res.render('404', {title: '404.'});
+
+    }
+    res.render('edit', { title: result[0].title, path: path, content: result[0].content})
+  });
+});
+
 module.exports = router;

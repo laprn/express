@@ -1,0 +1,15 @@
+extends layout
+
+block content
+  h1= title
+  form(action='/post/edit' method='POST')
+    p
+      | title:
+      input(type='text', name='title', value='#{title}' required)
+    p
+      | path:
+      input(type='text', name='path', value='#{path}' required)
+    p content:
+    textarea(name='content' rows='10' cols='70', required) #{content}  
+    br
+    input(type='submit' value='edit')
