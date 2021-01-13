@@ -11,7 +11,6 @@ var postRouter = require('./routes/post');
 
 var app = express();
 
-var md = new MarkdownIt();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
